@@ -33,7 +33,7 @@ export default function PanoramaViewer() {
             geometry.scale(-1, 1, 1);
 
             const texture = new THREE.TextureLoader().load(
-                '/panorama/image1.jpeg'
+                '/panorama/a1.jpg'
             );
             const material = new THREE.MeshBasicMaterial({ map: texture });
             sphere = new THREE.Mesh(geometry, material);
