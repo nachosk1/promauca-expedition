@@ -1,4 +1,5 @@
 'use client';
+
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three-stdlib';
@@ -32,7 +33,7 @@ export default function PanoramaViewer() {
             geometry.scale(-1, 1, 1);
 
             const texture = new THREE.TextureLoader().load(
-                '/panorama/a1.jpg'
+                '/panorama/image1.jpeg'
             );
             const material = new THREE.MeshBasicMaterial({ map: texture });
             sphere = new THREE.Mesh(geometry, material);
@@ -40,8 +41,8 @@ export default function PanoramaViewer() {
 
             // Controls
             controls = new OrbitControls(camera, renderer.domElement);
-            controls.enableZoom = false;
-            controls.enablePan = false;
+            controls.enableZoom = true;
+            controls.enablePan = true;
 
             // Resize handler
             window.addEventListener('resize', onWindowResize, false);
@@ -67,5 +68,5 @@ export default function PanoramaViewer() {
             window.removeEventListener('resize', onWindowResize);
         };
     }, []);
-    return <div ref={mountRef} style={{ width: '100vw', height: '100vh' }} />;
+    return <div ref={mountRef} className='w-full h-screen'/>;
 }
